@@ -4,6 +4,7 @@ import hyvvImg from "@/assets/projects/hyvvImg.png";
 import tutionWebsiteImg from "@/assets/projects/tutionWebsiteImg.png";
 import blubizlankaImg from "@/assets/projects/blubizlankaImg.png";
 import dubseaImg from "@/assets/projects/dubseaImg.png";
+import fleetup360Img from "@/assets/projects/fleetup360Img.png";
 
 
 
@@ -93,6 +94,17 @@ export const contactInfo = [
 
 // Projects Data  projects section
 export const projects = [
+    {
+      title: "fleetup360",
+      description: "Developed a website for a vehicle rental company using Django, Tailwind CSS, HTML, CSS, JavaScript, Python, MySQL, and Brevo.",
+      image: fleetup360Img,
+      technologies: ["Django", "Tailwind CSS", "HTML", "CSS", "JavaScript", "Python", "MySQL", "Brevo"],
+      liveUrl: "https://fleetup.sprintcodelabs.com/",
+      isLive: true,
+      // githubUrl: "https://github.com",
+      hasCode: false,
+      featured: true
+    },
     {
       title: "Hyvv",
       description: "Developed a user friendly interface for the Research Checker using React and Bootstrap, with a secure Django back end and OpenAI assistant integration.",
