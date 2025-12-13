@@ -136,7 +136,7 @@ export const projects = [
       isLive: true,
       githubUrl: "https://github.com",
       hasCode: false,
-      featured: false
+      featured: true
     },
     {
       title: "Tution Website",
@@ -147,7 +147,7 @@ export const projects = [
       isLive: true,
       githubUrl: "https://github.com",
       hasCode: false,
-      featured: false
+      featured: true
     },
     {
       title: "Blubizlanka.com",
@@ -158,6 +158,6 @@ export const projects = [
       isLive: true,
       githubUrl: "https://github.com",
       hasCode: false,
-      featured: false
+      featured: true
     }
   ];

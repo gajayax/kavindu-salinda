@@ -78,6 +78,7 @@ const Projects = () => {
           </div>
           
           {/* Other Projects */}
+          {otherProjects.length > 0 && (
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-foreground mb-4">
               Other Projects
@@ -85,7 +86,7 @@ const Projects = () => {
             <p className="text-muted-foreground">
               A selection of other projects I've worked on
             </p>
-          </div>
+          </div>)}
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {otherProjects.map((project) => (

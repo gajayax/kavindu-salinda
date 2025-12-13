@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background max-md:mt-24 max-lg:mt-32 mt-32 max-lg:mb-16">
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20"></div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -82,7 +82,7 @@ const Hero = () => {
           {/* Right side - Profile image */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden ring-8 ring-border shadow-2xl">
+              <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden ring-8 ring-border shadow-2xl my-8">
                 <img 
                   src={profilePhoto} 
                   alt="Professional headshot" 
