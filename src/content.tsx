@@ -99,7 +99,7 @@ export const projects = [
       description: "Developed a website for a vehicle rental company using Django, Tailwind CSS, HTML, CSS, JavaScript, Python, MySQL, and Brevo.",
       image: fleetup360Img,
       technologies: ["Django", "Tailwind CSS", "HTML", "CSS", "JavaScript", "Python", "MySQL", "Brevo"],
-      liveUrl: "https://fleetup.sprintcodelabs.com/",
+      liveUrl: "https://www.ezrental.lk/",
       isLive: true,
       // githubUrl: "https://github.com",
       hasCode: false,
@@ -139,16 +139,27 @@ export const projects = [
       featured: true
     },
     {
-      title: "Tution Website",
-      description: "Developed a website for a tution center using Django and WordPress.",
-      image: tutionWebsiteImg,
-      technologies: ["Django", "WordPress", "Tailwind CSS","figma"],
-      liveUrl: "https://sachiradilanka.com/",
+      title: "Personal Portfolio",
+      description: "Developed a personal portfolio website using Vite, React, Tailwind CSS, and TypeScript to showcase my skills and projects.",
+      image: "",
+      technologies: ["Vite", "React", "Tailwind CSS", "TypeScript", "HTML", "CSS"],
+      liveUrl: "https://www.surajfernando.com/",
       isLive: true,
       githubUrl: "https://github.com",
       hasCode: false,
       featured: true
     },
+    // {
+    //   title: "Tution Website",
+    //   description: "Developed a website for a tution center using Django and WordPress.",
+    //   image: tutionWebsiteImg,
+    //   technologies: ["Django", "WordPress", "Tailwind CSS","figma"],
+    //   liveUrl: "https://sachiradilanka.com/",
+    //   isLive: true,
+    //   githubUrl: "https://github.com",
+    //   hasCode: false,
+    //   featured: true
+    // },
     {
       title: "Blubizlanka.com",
       description: "Contributed to the development of a comprehensive web platform, focusing on creating reusable UI components and debugging to enhance user experience.",
