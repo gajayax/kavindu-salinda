@@ -5,6 +5,7 @@ import tutionWebsiteImg from "@/assets/projects/tutionWebsiteImg.png";
 import blubizlankaImg from "@/assets/projects/blubizlankaImg.png";
 import dubseaImg from "@/assets/projects/dubseaImg.png";
 import fleetup360Img from "@/assets/projects/fleetup360Img.png";
+import personalPortfolioImg from "@/assets/projects/surajweb.png";
 
 
 
