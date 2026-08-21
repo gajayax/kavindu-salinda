@@ -1,14 +1,16 @@
 import { Card } from "./ui/card";
-import { 
-  Code2, 
-  Palette, 
-  Database, 
-  Smartphone, 
-  Cloud, 
+import {
+  Code2,
+  Palette,
+  Database,
+  Smartphone,
+  Cloud,
   GitBranch,
   Zap,
   Users
 } from "lucide-react";
+import ScrollStage from "./effects/ScrollStage";
+import TiltCard from "./effects/TiltCard";
 
 const Skills = () => {
   const skillCategories = [
@@ -19,7 +21,7 @@ const Skills = () => {
       color: "from-blue-500 to-purple-600"
     },
     {
-      title: "Backend Development", 
+      title: "Backend Development",
       icon: <Database className="h-8 w-8" />,
       skills: ["Django", "Node.js", "Python", "MySQL", "MongoDB", "Firebase"],
       color: "from-green-500 to-teal-600"
@@ -58,62 +60,67 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-secondary/30">
+    <section id="skills" className="scene-3d relative scroll-mt-28 py-24 md:py-32">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">
-            Skills & Expertise
-          </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="mx-auto max-w-6xl">
+          <ScrollStage>
+            <h2 className="mb-16 text-center font-display text-4xl font-bold text-foreground md:text-5xl">
+              Skills & Expertise
+            </h2>
+          </ScrollStage>
+
+          <div className="mb-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {skillCategories.map((category, index) => (
-              <Card 
-                key={category.title}
-                className="p-6 bg-card-gradient shadow-card hover:shadow-hover transition-all duration-300 transform hover:-translate-y-2 border-0"
-              >
-                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${category.color} text-white mb-4`}>
-                  {category.icon}
-                </div>
-                
-                <h3 className="text-xl font-semibold mb-4 text-foreground">
-                  {category.title}
-                </h3>
-                
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 bg-skill-gradient text-sm font-medium rounded-full text-foreground border border-border"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </Card>
+              <ScrollStage key={category.title} intensity={0.9 + (index % 3) * 0.15}>
+                <TiltCard intensity={9}>
+                  <Card className="glass-panel h-full rounded-3xl border-0 p-6 shadow-card">
+                    <div className={`mb-4 inline-flex rounded-xl bg-gradient-to-r p-3 text-white ${category.color}`}>
+                      {category.icon}
+                    </div>
+
+                    <h3 className="mb-4 font-display text-xl font-semibold text-foreground">
+                      {category.title}
+                    </h3>
+
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="rounded-full border border-border bg-skill-gradient px-3 py-1 text-sm font-medium text-foreground"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </Card>
+                </TiltCard>
+              </ScrollStage>
             ))}
           </div>
-          
-          <Card className="p-8 bg-card-gradient shadow-card">
-            <h3 className="text-2xl font-semibold mb-8 text-center text-foreground">
-              Soft Skills
-            </h3>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {softSkills.map((skill) => (
-                <div 
-                  key={skill.name}
-                  className="flex flex-col items-center text-center group"
-                >
-                  <div className="p-4 rounded-full bg-skill-gradient mb-3 group-hover:scale-110 transition-transform duration-300">
-                    {skill.icon}
+
+          <ScrollStage>
+            <Card className="glass-panel rounded-3xl border-0 p-8 shadow-card">
+              <h3 className="mb-8 text-center font-display text-2xl font-semibold text-foreground">
+                Soft Skills
+              </h3>
+
+              <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+                {softSkills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="group flex flex-col items-center text-center"
+                  >
+                    <div className="mb-3 rounded-full bg-skill-gradient p-4 transition-transform duration-300 group-hover:scale-110">
+                      {skill.icon}
+                    </div>
+                    <span className="text-sm font-medium text-foreground">
+                      {skill.name}
+                    </span>
                   </div>
-                  <span className="text-sm font-medium text-foreground">
-                    {skill.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </Card>
+                ))}
+              </div>
+            </Card>
+          </ScrollStage>
         </div>
       </div>
     </section>

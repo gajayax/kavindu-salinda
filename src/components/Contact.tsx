@@ -5,6 +5,8 @@ import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { contactInfo, socialLinks, contactSectionDescription } from "@/content";
+import ScrollStage from "./effects/ScrollStage";
+import TiltCard from "./effects/TiltCard";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,7 +18,6 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
     toast({
       title: "Message sent!",
       description: "Thank you for reaching out. I'll get back to you soon.",
@@ -32,89 +33,93 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-secondary/30">
+    <section id="contact" className="scene-3d relative scroll-mt-28 py-24 md:py-32 pb-32">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">
-            Let's Work Together
-          </h2>
-          
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <Card className="p-8 bg-card-gradient shadow-card border-0">
-              <h3 className="text-2xl font-semibold mb-6 text-foreground">
-                Send me a message
-              </h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Your Name
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full"
-                    placeholder="John Doe"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email Address
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full"
-                    placeholder="john@example.com"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full min-h-[120px]"
-                    placeholder="Tell me about your project..."
-                  />
-                </div>
-                
-                <Button 
-                  type="submit" 
-                  className="w-full bg-hero-gradient text-white hover:opacity-90 transition-opacity"
-                  size="lg"
-                >
-                  Send Message
-                </Button>
-              </form>
-            </Card>
-            
-            {/* Contact Information */}
-            <div className="space-y-8">
+        <div className="mx-auto max-w-6xl">
+          <ScrollStage>
+            <h2 className="mb-16 text-center font-display text-4xl font-bold text-foreground md:text-5xl">
+              Let's Work Together
+            </h2>
+          </ScrollStage>
+
+          <div className="grid gap-12 lg:grid-cols-2">
+            <ScrollStage>
+              <TiltCard intensity={6}>
+                <Card className="glass-panel rounded-3xl border-0 p-8 shadow-card">
+                  <h3 className="mb-6 font-display text-2xl font-semibold text-foreground">
+                    Send me a message
+                  </h3>
+
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">
+                        Your Name
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="w-full rounded-xl bg-background/60"
+                        placeholder="John Doe"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">
+                        Email Address
+                      </label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full rounded-xl bg-background/60"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">
+                        Message
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        required
+                        value={formData.message}
+                        onChange={handleChange}
+                        className="min-h-[120px] w-full rounded-xl bg-background/60"
+                        placeholder="Tell me about your project..."
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full rounded-full bg-hero-gradient text-white transition-opacity hover:opacity-90"
+                      size="lg"
+                    >
+                      Send Message
+                    </Button>
+                  </form>
+                </Card>
+              </TiltCard>
+            </ScrollStage>
+
+            <ScrollStage intensity={1.1} className="space-y-8">
               <div>
-                <h3 className="text-2xl font-semibold mb-6 text-foreground">
+                <h3 className="mb-6 font-display text-2xl font-semibold text-foreground">
                   Get in Touch
                 </h3>
-                <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                <p className="mb-8 text-lg leading-relaxed text-muted-foreground">
                   {contactSectionDescription}
                 </p>
               </div>
-              
+
               <div className="space-y-4">
                 {contactInfo.map((info) => (
                   <a
@@ -122,9 +127,9 @@ const Contact = () => {
                     href={info.href}
                     target={info.href.startsWith('http') ? '_blank' : undefined}
                     rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="flex items-center space-x-4 p-4 rounded-lg bg-card-gradient shadow-card hover:shadow-hover transition-all duration-300 group"
+                    className="glass-panel group flex items-center space-x-4 rounded-2xl p-4 transition-all duration-300 hover:shadow-hover"
                   >
-                    <div className="p-3 rounded-full bg-skill-gradient text-foreground group-hover:scale-110 transition-transform">
+                    <div className="rounded-full bg-skill-gradient p-3 text-foreground transition-transform group-hover:scale-110">
                       {info.icon}
                     </div>
                     <div>
@@ -134,9 +139,9 @@ const Contact = () => {
                   </a>
                 ))}
               </div>
-              
+
               <div className="pt-8">
-                <h4 className="text-lg font-semibold mb-4 text-foreground">
+                <h4 className="mb-4 text-lg font-semibold text-foreground">
                   Follow Me
                 </h4>
                 <div className="flex space-x-4">
@@ -146,7 +151,7 @@ const Contact = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-3 rounded-full bg-skill-gradient text-foreground hover:scale-110 transition-all duration-300 ${social.color}`}
+                      className={`rounded-full bg-skill-gradient p-3 text-foreground transition-all duration-300 hover:scale-110 ${social.color}`}
                       aria-label={social.label}
                     >
                       {social.icon}
@@ -154,7 +159,7 @@ const Contact = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </ScrollStage>
           </div>
         </div>
       </div>
