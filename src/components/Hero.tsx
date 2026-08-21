@@ -124,21 +124,34 @@ const Hero = () => {
 
           <div className="flex justify-center lg:justify-end">
             <div className="relative" style={{ perspective: "1200px" }}>
+              <div className="photo-offset" aria-hidden />
               <div
                 ref={photoRef}
-                className="photo-frame my-8 h-80 w-80 md:h-96 md:w-96"
+                className="photo-frame my-8 h-[22.5rem] w-[18rem] md:h-[29rem] md:w-[23rem]"
               >
+                <div className="photo-orbit">
+                  <span className="orbit-path path-a">
+                    <i className="orbit-node" />
+                  </span>
+                  <span className="orbit-path path-b">
+                    <i className="orbit-node node-ring" />
+                  </span>
+                  <span className="orbit-path path-c">
+                    <i className="orbit-node node-diamond" />
+                  </span>
+                </div>
                 <div className="photo-ring" />
                 <div className="photo-ring-inner" />
-                <div className="relative h-full w-full overflow-hidden rounded-full ring-8 ring-border/60 shadow-2xl">
+                <div className="photo-plate">
                   <img
                     src={profilePhoto}
                     alt="Professional headshot"
                     className="h-full w-full object-cover"
                   />
+                  <span className="photo-sheen" />
                 </div>
               </div>
-              <div className="absolute -inset-4 -z-10 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 blur-2xl"></div>
+              <div className="photo-glow" />
             </div>
           </div>
         </div>

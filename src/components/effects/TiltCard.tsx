@@ -9,7 +9,7 @@ interface TiltCardProps {
   intensity?: number;
 }
 
-const TiltCard = ({ children, className, intensity = 10 }: TiltCardProps) => {
+const TiltCard = ({ children, className, intensity = 14 }: TiltCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const glareRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
@@ -36,7 +36,7 @@ const TiltCard = ({ children, className, intensity = 10 }: TiltCardProps) => {
     const rx = (py - 0.5) * -intensity;
     const ry = (px - 0.5) * intensity;
 
-    el.style.transform = `perspective(1100px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(16px)`;
+    el.style.transform = `perspective(1100px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(28px)`;
     if (glare) {
       glare.style.opacity = "1";
       glare.style.background = `radial-gradient(520px circle at ${px * 100}% ${py * 100}%, hsl(var(--primary-glow) / 0.28), transparent 42%)`;
