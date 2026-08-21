@@ -142,7 +142,7 @@ export const projects = [
     {
       title: "Personal Portfolio",
       description: "Developed a personal portfolio website using Vite, React, Tailwind CSS, and TypeScript to showcase my skills and projects.",
-      image: "",
+      image: personalPortfolioImg,
       technologies: ["Vite", "React", "Tailwind CSS", "TypeScript", "HTML", "CSS"],
       liveUrl: "https://www.surajfernando.com/",
       isLive: true,
