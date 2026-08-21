@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
 
@@ -6,6 +7,9 @@ const Navigation = () => {
   const [isDark, setIsDark] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
@@ -33,16 +37,24 @@ const Navigation = () => {
     }
   };
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
+  const goTo = (target: string) => {
     setIsMenuOpen(false);
+    if (target.startsWith("/")) {
+      navigate(target);
+      return;
+    }
+    if (!isHome) {
+      navigate(`/#${target}`);
+      return;
+    }
+    document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
   };
 
   const navItems = [
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
+    { id: "gallery", label: "Gallery", href: "/gallery" },
     { id: "contact", label: "Contact" },
   ];
 
@@ -58,7 +70,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <div
             className="font-display text-2xl font-bold bg-hero-gradient bg-clip-text text-transparent cursor-pointer"
-            onClick={() => scrollToSection("hero")}
+            onClick={() => goTo(isHome ? "hero" : "/")}
           >
             Portfolio
           </div>
@@ -67,8 +79,12 @@ const Navigation = () => {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300"
+                onClick={() => goTo(item.href ?? item.id)}
+                className={`text-sm font-medium transition-colors duration-300 ${
+                  item.href && location.pathname === item.href
+                    ? "text-primary"
+                    : "text-foreground/80 hover:text-primary"
+                }`}
               >
                 {item.label}
               </button>
@@ -111,7 +127,7 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => goTo(item.href ?? item.id)}
                   className="text-left text-foreground hover:text-primary transition-colors duration-300"
                 >
                   {item.label}

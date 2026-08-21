@@ -163,17 +163,17 @@ export const projects = [
       hasCode: true,
       featured: true
     },
-    // {
-    //   title: "Tution Website",
-    //   description: "Developed a website for a tution center using Django and WordPress.",
-    //   image: tutionWebsiteImg,
-    //   technologies: ["Django", "WordPress", "Tailwind CSS","figma"],
-    //   liveUrl: "https://sachiradilanka.com/",
-    //   isLive: true,
-    //   githubUrl: "https://github.com",
-    //   hasCode: false,
-    //   featured: true
-    // },
+    {
+      title: "Tution Website",
+      description: "Developed a website for a tution center using Django and WordPress.",
+      image: tutionWebsiteImg,
+      technologies: ["Django", "WordPress", "Tailwind CSS","figma"],
+      liveUrl: "https://sachiradilanka.com/",
+      isLive: true,
+      githubUrl: "https://github.com",
+      hasCode: false,
+      featured: false
+    },
     {
       title: "Blubizlanka.com",
       description: "Contributed to the development of a comprehensive web platform, focusing on creating reusable UI components and debugging to enhance user experience.",

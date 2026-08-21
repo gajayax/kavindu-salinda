@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import { Card } from "./ui/card";
+import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, LayoutGrid } from "lucide-react";
 import { projects } from "@/content";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import ScrollStage from "./effects/ScrollStage";
@@ -74,14 +74,22 @@ const Projects = () => {
                 style={{ top: "6rem", zIndex: index + 1, perspective: "1400px" }}
               >
                 <div data-stack-card className="w-full" style={{ transformStyle: "preserve-3d" }}>
-                  <TiltCard>
-                    <Card className="glass-panel overflow-hidden rounded-3xl border-0 shadow-hover">
-                      <div className="grid lg:grid-cols-2">
-                        <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 lg:aspect-auto lg:min-h-[360px]">
-                          <img src={project.image} alt={project.title} className="h-full w-full object-cover" />
+                  <TiltCard className="project-tilt">
+                    <div className="project-card">
+                      <div className="project-card-offset" aria-hidden />
+                      <div className="project-card-shell">
+                        <div className="project-screen">
+                          <div className="project-chrome" aria-hidden>
+                            <span />
+                            <span />
+                            <span />
+                          </div>
+                          <div className="project-shot">
+                            <img src={project.image} alt={project.title} />
+                          </div>
                         </div>
 
-                        <div className="flex flex-col justify-center p-6 md:p-8">
+                        <div className="project-copy">
                           <h3 className="mb-3 font-display text-2xl font-semibold text-foreground">
                             {project.title}
                           </h3>
@@ -92,10 +100,7 @@ const Projects = () => {
 
                           <div className="mb-6 flex flex-wrap gap-2">
                             {project.technologies.map((tech) => (
-                              <span
-                                key={tech}
-                                className="rounded-full border border-border bg-skill-gradient px-3 py-1 text-sm font-medium text-foreground"
-                              >
+                              <span key={tech} className="project-chip">
                                 {tech}
                               </span>
                             ))}
@@ -132,11 +137,20 @@ const Projects = () => {
                           </div>
                         </div>
                       </div>
-                    </Card>
+                    </div>
                   </TiltCard>
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="mb-16 flex justify-center">
+            <Button asChild variant="outline" className="rounded-full">
+              <Link to="/gallery" className="flex items-center gap-2">
+                <LayoutGrid size={16} />
+                Open full gallery
+              </Link>
+            </Button>
           </div>
 
           {otherProjects.length > 0 && (
@@ -155,59 +169,59 @@ const Projects = () => {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {otherProjects.map((project) => (
               <ScrollStage key={project.title}>
-                <TiltCard intensity={8}>
-                  <Card className="glass-panel rounded-3xl border-0 p-6 shadow-card transition-all duration-300">
-                    <h4 className="mb-3 font-display text-xl font-semibold text-foreground">
-                      {project.title}
-                    </h4>
+                <TiltCard intensity={8} className="project-tilt">
+                  <div className="project-card project-card-compact">
+                    <div className="project-card-offset" aria-hidden />
+                    <div className="project-card-shell compact">
+                      <h4 className="mb-3 font-display text-xl font-semibold text-foreground">
+                        {project.title}
+                      </h4>
 
-                    <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-                      {project.description}
-                    </p>
+                      <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+                        {project.description}
+                      </p>
 
-                    <div className="mb-4 flex flex-wrap gap-2">
-                      {project.technologies.slice(0, 3).map((tech) => (
-                        <span
-                          key={tech}
-                          className="rounded-full border border-border bg-skill-gradient px-2 py-1 text-xs font-medium text-foreground"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.technologies.length > 3 && (
-                        <span className="px-2 py-1 text-xs text-muted-foreground">
-                          +{project.technologies.length - 3} more
-                        </span>
-                      )}
+                      <div className="mb-4 flex flex-wrap gap-2">
+                        {project.technologies.slice(0, 3).map((tech) => (
+                          <span key={tech} className="project-chip compact">
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <span className="px-2 py-1 text-xs text-muted-foreground">
+                            +{project.technologies.length - 3} more
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="flex gap-2">
+                        {project.isLive && (
+                          <Button asChild size="sm" variant="outline" className="flex-1 rounded-full text-xs">
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink size={14} />
+                              Go to Website
+                            </a>
+                          </Button>
+                        )}
+
+                        {project.hasCode && (
+                          <Button asChild size="sm" variant="outline" className="flex-1 rounded-full text-xs">
+                            <a
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Github size={14} />
+                            </a>
+                          </Button>
+                        )}
+                      </div>
                     </div>
-
-                    <div className="flex gap-2">
-                      {project.isLive && (
-                        <Button asChild size="sm" variant="outline" className="flex-1 rounded-full text-xs">
-                          <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <ExternalLink size={14} />
-                            Go to Website
-                          </a>
-                        </Button>
-                      )}
-
-                      {project.hasCode && (
-                        <Button asChild size="sm" variant="outline" className="flex-1 rounded-full text-xs">
-                          <a
-                            href={project.githubUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <Github size={14} />
-                          </a>
-                        </Button>
-                      )}
-                    </div>
-                  </Card>
+                  </div>
                 </TiltCard>
               </ScrollStage>
             ))}
