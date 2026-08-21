@@ -4,25 +4,85 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { contactInfo, socialLinks, contactSectionDescription } from "@/content";
+import { contactInfo, socialLinks, contactSectionDescription, heroEmail } from "@/content";
 import ScrollStage from "./effects/ScrollStage";
 import TiltCard from "./effects/TiltCard";
+
+const web3AccessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
+    company: "",
   });
+  const [sending, setSending] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    if (formData.company) return;
+
+    setSending(true);
+    try {
+      if (web3AccessKey) {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: web3AccessKey,
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            from_name: formData.name,
+            subject: `Portfolio message from ${formData.name}`,
+          }),
+        });
+        const result = await response.json();
+        if (!response.ok || result.success === false) {
+          throw new Error(result.message || "Failed to send");
+        }
+      } else {
+        const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(heroEmail)}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            _replyto: formData.email,
+            _subject: `Portfolio message from ${formData.name}`,
+            _template: "table",
+            _captcha: "false",
+          }),
+        });
+        const result = await response.json();
+        if (!response.ok || result.success === "false" || result.success === false) {
+          throw new Error(result.message || "Failed to send");
+        }
+      }
+
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", message: "", company: "" });
+    } catch {
+      toast({
+        variant: "destructive",
+        title: "Couldn't send message",
+        description: "Please try again or email me directly.",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -51,6 +111,19 @@ const Contact = () => {
                   </h3>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
+                      <label htmlFor="company">Company</label>
+                      <input
+                        id="company"
+                        name="company"
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={formData.company}
+                        onChange={handleChange}
+                      />
+                    </div>
+
                     <div>
                       <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">
                         Your Name
@@ -102,8 +175,9 @@ const Contact = () => {
                       type="submit"
                       className="w-full rounded-full bg-hero-gradient text-white transition-opacity hover:opacity-90"
                       size="lg"
+                      disabled={sending}
                     >
-                      Send Message
+                      {sending ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
                 </Card>
