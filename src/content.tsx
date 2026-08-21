@@ -6,6 +6,7 @@ import blubizlankaImg from "@/assets/projects/blubizlankaImg.png";
 import dubseaImg from "@/assets/projects/dubseaImg.png";
 import fleetup360Img from "@/assets/projects/fleetup360Img.png";
 import personalPortfolioImg from "@/assets/projects/surajweb.png";
+import tinkertaleImg from "@/assets/projects/tinkertaleImg.png";
 
 
 
@@ -148,6 +149,18 @@ export const projects = [
       isLive: true,
       githubUrl: "https://github.com",
       hasCode: false,
+      featured: true
+    },
+
+    {
+      title: "TinkerTale",
+      description: "Developed a wordpress website for a tinker tale company using wordpress and woocommerce. with a custom theme and plugins. product and category pages are built with woocommerce and custom post type. payment gateway is built with stripe, paypal, and bank transfer payhere.",
+      image: tinkertaleImg,
+      technologies: ["WordPress", "Woocommerce", "Stripe", "Paypal", "Bank Transfer", "Payhere", "Tailwind CSS", "HTML", "CSS"],
+      liveUrl: "https://tinkertale-staging.sprintcodelabs.com/",
+      isLive: true,
+      githubUrl: "https://github.com",
+      hasCode: true,
       featured: true
     },
     // {
