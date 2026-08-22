@@ -201,6 +201,7 @@
   overflow: hidden;
   border-radius: 1.75rem;
   background-image: var(--card-gradient);
+  background-color: black;
   border: 1px solid hsl(var(--border) / 0.8);
   box-shadow:
     0 28px 70px -28px hsl(240 22% 8% / 0.45),
