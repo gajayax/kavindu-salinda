@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
+import { heroSectionTitle } from "@/content";
 
 const Navigation = () => {
   const [isDark, setIsDark] = useState(false);
@@ -72,7 +73,7 @@ const Navigation = () => {
             className="font-display text-2xl font-bold bg-hero-gradient bg-clip-text text-transparent cursor-pointer"
             onClick={() => goTo(isHome ? "hero" : "/")}
           >
-            Portfolio
+            {heroSectionTitle}
           </div>
 
           <div className="hidden md:flex items-center space-x-8">

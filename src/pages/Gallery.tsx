@@ -29,7 +29,7 @@ const Gallery = () => {
                   className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   <ArrowLeft size={16} />
-                  Portfolio
+                  Home
                 </Link>
                 <h1 className="font-display text-4xl font-bold text-foreground md:text-6xl">
                   Project Gallery
