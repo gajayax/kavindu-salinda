@@ -81,7 +81,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 className="rounded-full shadow-elegant transition-all duration-300 hover:scale-105"
-                onClick={() => scrollToSection("projects")}
+                onClick={() => scrollToSection("gallery")}
               >
                 View My Work
               </Button>

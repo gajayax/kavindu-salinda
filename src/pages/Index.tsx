@@ -4,7 +4,6 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
 import ProjectGallery from "@/components/ProjectGallery";
 import Contact from "@/components/Contact";
 import SceneBackdrop from "@/components/effects/SceneBackdrop";
@@ -30,7 +29,6 @@ const Index = () => {
       <main className="relative z-10">
         <Hero />
         <About />
-        <Projects />
         <ProjectGallery />
         <Skills />
         <Contact />
