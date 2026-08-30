@@ -7,6 +7,7 @@ import dubseaImg from "@/assets/projects/dubseaImg.png";
 import fleetup360Img from "@/assets/projects/fleetup360Img.png";
 import personalPortfolioImg from "@/assets/projects/surajweb.png";
 import tinkertaleImg from "@/assets/projects/tinkertaleImg.png";
+import popyPosImg from "@/assets/projects/popyPosImg.png";
 
 
 
@@ -93,9 +94,20 @@ export const contactInfo = [
     //   color: "hover:text-blue-400"
     // }
   ];
-
+  // Built a full-stack, multi-tenant POS and inventory platform with role-based access control and live multi-branch data isolation. • Engineered an offline-first transaction engine using IndexedDB with auto-sync, allowing zero-downtime sales processing during network outages. • Packaged the system as a native Windows desktop app using Electron with dynamic local/cloud backend switching and multi-language support (English/Sinhala).
 // Projects Data  projects section
 export const projects = [
+    {
+      title: "Popy POS",
+      description: "Built a full-stack, multi-tenant POS and inventory platform with role-based access control and live multi-branch data isolation. Engineered an offline-first transaction engine using IndexedDB with auto-sync, allowing zero-downtime sales processing during network outages. Packaged the system as a native Windows desktop app using Electron with dynamic local/cloud backend switching and multi-language support (English/Sinhala).",
+      image: popyPosImg,
+      technologies: ["Django", "Tailwind CSS", "HTML", "CSS", "JavaScript", "Python", "MySQL", "Brevo"],
+      liveUrl: "https://popypos.vercel.app/",
+      isLive: true,
+      githubUrl: "https://github.com",
+      hasCode: false,
+      featured: true
+    },
     {
       title: "fleetup360",
       description: "Developed a website for a vehicle rental company using Django, Tailwind CSS, HTML, CSS, JavaScript, Python, MySQL, and Brevo.",
