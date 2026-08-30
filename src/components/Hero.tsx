@@ -97,28 +97,27 @@ const Hero = () => {
             </div>
 
             <div className="flex space-x-6">
-              <a
-                href={socialLinks[0].href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground transition-all duration-300 hover:scale-110 hover:text-foreground"
-              >
-                <Github size={24} />
-              </a>
-              <a
-                href={socialLinks[1].href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground transition-all duration-300 hover:scale-110 hover:text-foreground"
-              >
-                <Linkedin size={24} />
-              </a>
-              <a
-                href={`mailto:${heroEmail}`}
-                className="text-muted-foreground transition-all duration-300 hover:scale-110 hover:text-foreground"
-              >
-                <Mail size={24} />
-              </a>
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="text-muted-foreground transition-all duration-300 hover:scale-110 hover:text-foreground"
+                >
+                  {social.icon}
+                </a>
+              ))}
+              {heroEmail && (
+                <a
+                  href={`mailto:${heroEmail}`}
+                  aria-label="Email"
+                  className="text-muted-foreground transition-all duration-300 hover:scale-110 hover:text-foreground"
+                >
+                  <Mail size={24} />
+                </a>
+              )}
             </div>
           </div>
 

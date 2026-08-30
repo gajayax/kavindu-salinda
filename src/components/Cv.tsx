@@ -1,38 +1,62 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Globe, Linkedin, Github } from 'lucide-react';
+import {
+  heroSectionTitle,
+  heroSectionSubtitle,
+  heroEmail,
+  descriptionPart1,
+  experience,
+  education,
+  currentRole,
+  languages,
+  contactInfo,
+  socialLinks,
+  projects,
+} from '@/content';
 
 const ATSFriendlyCV = () => {
+    const phone = contactInfo.find(c => c.label === "Phone")?.value || "+1 (555) 234-5678";
+    const location = contactInfo.find(c => c.label === "Location")?.value || "San Francisco, CA";
+    const github = socialLinks.find(s => s.label === "GitHub")?.href || "https://github.com";
+    const linkedin = socialLinks.find(s => s.label === "LinkedIn")?.href || "https://linkedin.com";
+
     return (
         <div className="max-w-4xl mx-auto bg-white p-8">
             {/* Header */}
             <header className="border-b-2 border-gray-800 pb-4 mb-6">
-                <h1 className="text-4xl font-bold text-gray-900 mb-2">KAVINDU SALINDA</h1>
-                <h2 className="text-xl text-gray-700 mb-4">Full Stack Software Engineer</h2>
+                <h1 className="text-4xl font-bold text-gray-900 mb-2 uppercase">{heroSectionTitle}</h1>
+                <h2 className="text-xl text-gray-700 mb-4">{heroSectionSubtitle}</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
                     <div className="flex items-center gap-2">
                         <Mail size={16} />
-                        <span>kavindus26@gmail.com</span>
+                        <span>{heroEmail}</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <Phone size={16} />
-                        <span>+94 769734690</span>
+                        <span>{phone}</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <MapPin size={16} />
-                        <span>Colombo, Sri Lanka</span>
+                        <span>{location}</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <Linkedin size={16} />
-                        <a href="https://www.linkedin.com/in/kavindu-salinda/" className="text-blue-600 hover:underline">linkedin.com/in/kavindu-salinda</a>
+                        <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                            {linkedin.replace("https://", "")}
+                        </a>
                     </div>
                     <div className="flex items-center gap-2">
                         <Github size={16} />
-                        <a href="https://github.com/KavinduSalinda" className="text-blue-600 hover:underline">github.com/KavinduSalinda</a>
+                        <a href={github} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                            {github.replace("https://", "")}
+                        </a>
                     </div>
                     <div className="flex items-center gap-2">
                         <Globe size={16} />
-                        <a href="https://kavindu-salinda.vercel.app/" className="text-blue-600 hover:underline">kavindu-salinda.vercel.app</a>
+                        <a href="https://example.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                            portfolio-demo.com
+                        </a>
                     </div>
                 </div>
             </header>
@@ -41,10 +65,7 @@ const ATSFriendlyCV = () => {
             <section className="mb-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-3 border-b border-gray-300 pb-1">PROFESSIONAL SUMMARY</h3>
                 <p className="text-gray-700 leading-relaxed">
-                    Self motivated Full Stack Software Engineer with over 2 years of experience specializing in React and Django,
-                    with additional proficiency in MERN stack development. Experienced in both remote and onsite work environments,
-                    with a reputation as a fast learner who quickly adapts to new tools and technologies. Dedicated to delivering
-                    high quality solutions while continuously expanding skills and expertise.
+                    {descriptionPart1}
                 </p>
             </section>
 
@@ -54,9 +75,8 @@ const ATSFriendlyCV = () => {
                 <div className="mb-2">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="font-semibold text-gray-900">Bachelor of Science in Electronics & IT</p>
-                            <p className="text-gray-700">University of Colombo - 2020 - 2024</p>
-                            <p className="text-gray-700">GPA: 3.2</p>
+                            <p className="font-semibold text-gray-900">{education}</p>
+                            <p className="text-gray-700">Top Tier University - Graduated with Honors</p>
                         </div>
                     </div>
                 </div>
@@ -68,27 +88,19 @@ const ATSFriendlyCV = () => {
                 <div className="space-y-2">
                     <div>
                         <span className="font-semibold text-gray-900">Frontend:</span>
-                        <span className="text-gray-700 ml-2">React, React Native, Next.js, JavaScript, HTML, CSS, Bootstrap, Tailwind CSS, Vite</span>
+                        <span className="text-gray-700 ml-2">React, TypeScript, Next.js, JavaScript, HTML5, CSS3, Tailwind CSS, Vite</span>
                     </div>
                     <div>
                         <span className="font-semibold text-gray-900">Backend:</span>
-                        <span className="text-gray-700 ml-2">Django, Node.js, Python, Express</span>
+                        <span className="text-gray-700 ml-2">Node.js, Express, Python, Django, REST APIs, GraphQL</span>
                     </div>
                     <div>
                         <span className="font-semibold text-gray-900">Databases:</span>
-                        <span className="text-gray-700 ml-2">MySQL, MongoDB, Firebase</span>
+                        <span className="text-gray-700 ml-2">PostgreSQL, MySQL, MongoDB, Redis, Firebase</span>
                     </div>
                     <div>
-                        <span className="font-semibold text-gray-900">Design & Tools:</span>
-                        <span className="text-gray-700 ml-2">Figma, Adobe Photoshop, WordPress, n8n</span>
-                    </div>
-                    <div>
-                        <span className="font-semibold text-gray-900">Development Tools:</span>
-                        <span className="text-gray-700 ml-2">Git, GitHub, Cursor, ClickUp, Jira, Slack</span>
-                    </div>
-                    <div>
-                        <span className="font-semibold text-gray-900">Other Technologies:</span>
-                        <span className="text-gray-700 ml-2">OpenAI APIs, RAG Agents, Brevo, DigitalOcean, Vercel, WordPress REST API, text.lk, Arduino, Octave</span>
+                        <span className="font-semibold text-gray-900">DevOps & Cloud:</span>
+                        <span className="text-gray-700 ml-2">Docker, AWS, Vercel, CI/CD, Git, GitHub Actions</span>
                     </div>
                 </div>
             </section>
@@ -99,124 +111,43 @@ const ATSFriendlyCV = () => {
 
                 <div className="mb-4">
                     <div className="flex justify-between items-start mb-2">
-                        <h4 className="font-semibold text-gray-900">Full Stack Software Engineer</h4>
-                        <span className="text-gray-600 text-sm">2+ Years</span>
+                        <h4 className="font-semibold text-gray-900">{currentRole}</h4>
+                        <span className="text-gray-600 text-sm">{experience}</span>
                     </div>
                     <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
-                        <li>Specialized in React and Django development with proficiency in MERN stack technologies</li>
-                        <li>Successfully delivered multiple full stack web applications with integrated AI capabilities</li>
-                        <li>Experienced in both remote and onsite work environments with proven adaptability</li>
-                        <li>Demonstrated expertise in API integration, database management, and responsive UI development</li>
-                        <li>Built AI powered applications using OpenAI APIs and RAG agents for intelligent data processing</li>
+                        <li>Developed performant and scalable web applications using React, TypeScript, and modern component libraries.</li>
+                        <li>Designed and integrated resilient backend APIs and microservices with automated testing pipelines.</li>
+                        <li>Collaborated in agile, cross-functional teams to deliver high-quality software on schedule.</li>
+                        <li>Enhanced web performance metrics, resulting in faster load times and improved Lighthouse scores.</li>
                     </ul>
                 </div>
             </section>
 
             {/* Key Projects */}
             <section className="mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 border-b border-gray-300 pb-1 mt-12">KEY PROJECTS</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 border-b border-gray-300 pb-1 mt-6">KEY PROJECTS</h3>
 
-                <div className="mb-4">
-                    <div className="flex justify-between items-start mb-1">
-                        <h4 className="font-semibold text-gray-900">FleetUp360 - Vehicle Rental Platform</h4>
-                        <a href="https://fleetup.sprintcodelabs.com/" className="text-blue-600 text-sm hover:underline">fleetup.sprintcodelabs.com</a>
+                {projects.slice(0, 3).map((project) => (
+                    <div key={project.title} className="mb-4">
+                        <div className="flex justify-between items-start mb-1">
+                            <h4 className="font-semibold text-gray-900">{project.title}</h4>
+                            {project.liveUrl && (
+                                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 text-sm hover:underline">
+                                    {project.liveUrl}
+                                </a>
+                            )}
+                        </div>
+                        <p className="text-gray-600 text-sm mb-2">{project.technologies.join(", ")}</p>
+                        <p className="text-gray-700 text-sm ml-4">{project.description}</p>
                     </div>
-                    <p className="text-gray-600 text-sm mb-2">Django, Tailwind CSS, HTML, CSS, JavaScript, Python, MySQL, Brevo</p>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
-                        <li>Developed comprehensive website for vehicle rental company using Django framework</li>
-                        <li>Implemented responsive design with Tailwind CSS for optimal user experience</li>
-                        <li>Built MySQL database architecture for efficient data management</li>
-                        <li>Integrated Brevo email service for automated customer communications</li>
-                    </ul>
-                </div>
-
-                <div className="mb-4">
-                    <div className="flex justify-between items-start mb-1">
-                        <h4 className="font-semibold text-gray-900">Negombo Taxi - Vehicle Booking Platform</h4>
-                        <a href="https://www.negombotaxi.com/" className="text-blue-600 text-sm hover:underline">negombotaxi.com</a>
-                    </div>
-                    <p className="text-gray-600 text-sm mb-2">Vite, Lovable, Django, WordPress REST API, MySQL, Brevo, text.lk</p>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
-                        <li>Developed tourist focused vehicle booking website with Django backend</li>
-                        <li>Implemented efficient MySQL database for data management</li>
-                        <li>Integrated SMS notifications using text.lk and email services with Brevo</li>
-                        <li>Connected WordPress REST API for dynamic content management</li>
-                    </ul>
-                </div>
-
-                <div className="mb-4">
-                    <div className="flex justify-between items-start mb-1">
-                        <h4 className="font-semibold text-gray-900">Hyvv - Research Checker Platform</h4>
-                        <a href="https://app.thehyvv.com/" className="text-blue-600 text-sm hover:underline">app.thehyvv.com</a>
-                    </div>
-                    <p className="text-gray-600 text-sm mb-2">React, Bootstrap, Django, n8n, RAG agents, OpenAI, Brevo</p>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
-                        <li>Developed user friendly interface for Research Checker using React and Bootstrap</li>
-                        <li>Implemented secure Django backend with OpenAI assistant integration</li>
-                        <li>Built RAG agents for intelligent document analysis and research verification</li>
-                        <li>Integrated email automation using Brevo and workflow automation with n8n</li>
-                    </ul>
-                </div>
-
-                
-
-                {/* <div className="mb-4">
-                    <div className="flex justify-between items-start mb-1">
-                        <h4 className="font-semibold text-gray-900">Dubsea.com - Web Application Rebuild</h4>
-                        <a href="https://www.dubsea.com/" className="text-blue-600 text-sm hover:underline">dubsea.com</a>
-                    </div>
-                    <p className="text-gray-600 text-sm mb-2">Next.js, Django, WordPress REST API, Brevo, Tailwind CSS</p>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
-                        <li>Rebuilt web application using Next.js to optimize frontend performance</li>
-                        <li>Integrated with Django backend and WordPress REST API for blog functionality</li>
-                        <li>Improved page load times and overall user experience significantly</li>
-                    </ul>
-                </div> */}
-
-                <div className="mb-4">
-                    <div className="flex justify-between items-start mb-1">
-                        <h4 className="font-semibold text-gray-900">Tuition Center Website</h4>
-                        <a href="https://sachiradilanka.com/" className="text-blue-600 text-sm hover:underline">sachiradilanka.com</a>
-                    </div>
-                    <p className="text-gray-600 text-sm mb-2">Django, WordPress, Tailwind CSS, Figma, MySQL</p>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
-                        <li>Developed website for tuition center using Django and WordPress integration</li>
-                        <li>Designed UI/UX in Figma and implemented with Tailwind CSS</li>
-                        <li>Built content management system for easy updates by non-technical staff</li>
-                    </ul>
-                </div>
-
-                <div className="mb-4">
-                    <div className="flex justify-between items-start mb-1">
-                        <h4 className="font-semibold text-gray-900">Blubizlanka.com - Business Web Platform</h4>
-                        <a href="https://bluebizlanka.com/" className="text-blue-600 text-sm hover:underline">bluebizlanka.com</a>
-                    </div>
-                    <p className="text-gray-600 text-sm mb-2">React, Node.js, MongoDB, Express, Tailwind CSS</p>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
-                        <li>Contributed to development of comprehensive MERN stack web platform</li>
-                        <li>Created reusable UI components for improved development efficiency</li>
-                        <li>Performed debugging and optimization to enhance user experience</li>
-                    </ul>
-                </div>
-            </section>
-
-            {/* Soft Skills */}
-            <section className="mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 border-b border-gray-300 pb-1">SOFT SKILLS</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-gray-700">
-                    <div>• Leadership</div>
-                    <div>• Problem Solving</div>
-                    <div>• Communication</div>
-                    <div>• Adaptability</div>
-                </div>
+                ))}
             </section>
 
             {/* Languages */}
             <section className="mb-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-3 border-b border-gray-300 pb-1">LANGUAGES</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-gray-700">
-                    <div>• English</div>
-                    <div>• Sinhala</div>
+                <div className="text-gray-700">
+                    {languages}
                 </div>
             </section>
         </div>
@@ -224,4 +155,3 @@ const ATSFriendlyCV = () => {
 };
 
 export default ATSFriendlyCV;
-

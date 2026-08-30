@@ -1,200 +1,222 @@
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
-import negomboTaxiImg from "@/assets/projects/negomboTaxiImg.png";
-import hyvvImg from "@/assets/projects/hyvvImg.png";
-import tutionWebsiteImg from "@/assets/projects/tutionWebsiteImg.png";
-import blubizlankaImg from "@/assets/projects/blubizlankaImg.png";
-import dubseaImg from "@/assets/projects/dubseaImg.png";
-import fleetup360Img from "@/assets/projects/fleetup360Img.png";
-import personalPortfolioImg from "@/assets/projects/surajweb.png";
-import tinkertaleImg from "@/assets/projects/tinkertaleImg.png";
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Code2, Palette, Database, Smartphone, Cloud, GitBranch, Zap, Users } from "lucide-react";
 import popyPosImg from "@/assets/projects/popyPosImg.png";
-
-
-
-// hero section
-export const heroSectionTitle = "Kavindu Salinda";
+import tinkertaleImg from "@/assets/projects/tinkertaleImg.png";
+import proImage from "@/assets/projects/proImage.png";
+// ============================================================================
+// 1. HERO SECTION CONFIGURATION
+// ============================================================================
+export const heroSectionTitle = "Alex Morgan";
 export const heroSectionSubtitle = "Full Stack Software Engineer";
-export const heroEmail = "kavindus26@gmail.com";
-export const heroSectionDescription = "Self motivated professional with over 2 years of experience specializing in React and Django, with additional proficiency in MERN stack development";
+export const heroEmail = "alex.morgan@example.com";
+export const heroSectionDescription = "Passionate full-stack engineer specializing in crafting scalable, responsive web applications with React, TypeScript, and modern backend architectures.";
 
-// about section
-export const descriptionPart1 = "A self motivated professional with over 2 years of experience in the tech industry. I specialize in React and Django as main stack technologies, with additional proficiency in MERN stack development including Node.js and MongoDB.";
-export const descriptionPart2 = "I'm experienced in both remote and onsite work environments, with a reputation as a fast learner who quickly adapts to new tools and technologies. I'm dedicated to delivering high quality solutions while continuously expanding my skills and expertise.";
+// ============================================================================
+// 2. ABOUT SECTION CONFIGURATION
+// ============================================================================
+export const descriptionPart1 = "I am a dedicated software engineer with 3+ years of experience building performant, user-centric web applications. I specialize in modern JavaScript/TypeScript ecosystems, React, Node.js, and clean API design.";
+export const descriptionPart2 = "Experienced in both remote and agile team environments. I prioritize writing clean, maintainable code, optimizing system performance, and continuously adapting to emerging technologies.";
 
-// quick facts section
-export const experience = "2+ Years"; 
-export const education = "BSc Electronics & IT (University of Colombo)";
-export const currentRole = "Full Stack Software Engineer";
-export const languages = "English, Sinhala";
+// Quick Facts Data (displayed on the About card)
+export const experience = "3+ Years"; 
+export const education = "B.S. in Computer Science";
+export const currentRole = "Full Stack Engineer";
+export const languages = "English, Spanish";
 
-// Quick Facts Data  about section
 export const quickFacts = [
-    {
-        title: "Experience",
-        value: experience
-    },
-    
-    {
-        title: "Education",
-        value: education
-    },
-    {
-        title: "Current Role",
-        value: currentRole
-    },
-    {
-        title: "Languages",
-        value: languages
-    }
+  {
+    title: "Experience",
+    value: experience,
+  },
+  {
+    title: "Education",
+    value: education,
+  },
+  {
+    title: "Current Role",
+    value: currentRole,
+  },
+  {
+    title: "Languages",
+    value: languages,
+  },
 ];
 
-// contact section
-export const contactSectionDescription = "I'm always interested in new opportunities and exciting projects. Whether you have a project in mind or just want to say hello, I'd love to hear from you!";
+// ============================================================================
+// 3. SKILLS CONFIGURATION
+// ============================================================================
+export const skillCategories = [
+  {
+    title: "Frontend Development",
+    icon: <Code2 className="h-8 w-8" />,
+    skills: ["React", "TypeScript", "Next.js", "Tailwind CSS", "HTML5", "CSS3", "Redux Toolkit"],
+    color: "from-blue-500 to-purple-600",
+  },
+  {
+    title: "Backend Development",
+    icon: <Database className="h-8 w-8" />,
+    skills: ["Node.js", "Express", "Python", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"],
+    color: "from-green-500 to-teal-600",
+  },
+  {
+    title: "UI/UX & Design Systems",
+    icon: <Palette className="h-8 w-8" />,
+    skills: ["Figma", "Design Tokens", "Radix UI", "shadcn/ui", "Responsive Design", "Accessibility (a11y)"],
+    color: "from-pink-500 to-rose-600",
+  },
+  {
+    title: "Mobile Development",
+    icon: <Smartphone className="h-8 w-8" />,
+    skills: ["React Native", "Expo", "Mobile-First UX", "Cross-Platform Optimization"],
+    color: "from-orange-500 to-yellow-600",
+  },
+  {
+    title: "DevOps & Cloud",
+    icon: <Cloud className="h-8 w-8" />,
+    skills: ["Docker", "AWS (S3, EC2)", "Vercel", "CI/CD Pipelines", "Linux"],
+    color: "from-indigo-500 to-blue-600",
+  },
+  {
+    title: "Development Tools",
+    icon: <GitBranch className="h-8 w-8" />,
+    skills: ["Git", "GitHub", "Vite", "Vitest", "Jest", "Postman"],
+    color: "from-gray-500 to-slate-600",
+  },
+];
 
-// contact info section
+export const softSkills = [
+  { name: "Leadership", icon: <Users className="h-5 w-5" /> },
+  { name: "Problem Solving", icon: <Zap className="h-5 w-5" /> },
+  { name: "Communication", icon: <Users className="h-5 w-5" /> },
+  { name: "Adaptability", icon: <Zap className="h-5 w-5" /> },
+];
+
+// ============================================================================
+// 4. CONTACT & SOCIAL CONFIGURATION
+// ============================================================================
+export const contactSectionDescription = "I'm always open to discussing new opportunities, innovative projects, or collaborative engineering efforts. Feel free to reach out anytime!";
+
 export const contactInfo = [
-    {
-      icon: <Mail className="h-5 w-5" />,
-      label: "Email",
-      value: "kavindus26@gmail.com",
-      href: "mailto:kavindus26@gmail.com"
-    },
-    {
-      icon: <Phone className="h-5 w-5" />,
-      label: "Phone", 
-      value: "+94 769734690",
-      href: "tel:+94769734690"
-    },
-    {
-      icon: <MapPin className="h-5 w-5" />,
-      label: "Location",
-      value: "Colombo, Sri Lanka",
-      href: "https://maps.google.com"
-    }
-  ];
+  {
+    icon: <Mail className="h-5 w-5" />,
+    label: "Email",
+    value: "alex.morgan@example.com",
+    href: "mailto:alex.morgan@example.com",
+  },
+  {
+    icon: <Phone className="h-5 w-5" />,
+    label: "Phone", 
+    value: "+1 (555) 234-5678",
+    href: "tel:+15552345678",
+  },
+  {
+    icon: <MapPin className="h-5 w-5" />,
+    label: "Location",
+    value: "San Francisco, CA",
+    href: "https://maps.google.com",
+  },
+];
 
-// social links section
-  export const socialLinks = [
-    {
-      icon: <Github className="h-6 w-6" />,
-      label: "GitHub",
-      href: "https://github.com/KavinduSalinda",
-      color: "hover:text-gray-600"
-    },
-    {
-      icon: <Linkedin className="h-6 w-6" />,
-      label: "LinkedIn", 
-      href: "https://www.linkedin.com/in/kavindu-salinda/",
-      color: "hover:text-blue-600"
-    },
-    // {
-    //   icon: <Twitter className="h-6 w-6" />,
-    //   label: "Twitter",
-    //   href: "https://twitter.com", 
-    //   color: "hover:text-blue-400"
-    // }
-  ];
-  // Built a full-stack, multi-tenant POS and inventory platform with role-based access control and live multi-branch data isolation. • Engineered an offline-first transaction engine using IndexedDB with auto-sync, allowing zero-downtime sales processing during network outages. • Packaged the system as a native Windows desktop app using Electron with dynamic local/cloud backend switching and multi-language support (English/Sinhala).
-// Projects Data  projects section
-export const projects = [
-    {
-      title: "Popy POS",
-      description: "Built a full-stack, multi-tenant POS and inventory platform with role-based access control and live multi-branch data isolation. Engineered an offline-first transaction engine using IndexedDB with auto-sync, allowing zero-downtime sales processing during network outages. Packaged the system as a native Windows desktop app using Electron with dynamic local/cloud backend switching and multi-language support (English/Sinhala).",
-      image: popyPosImg,
-      technologies: ["Django", "Tailwind CSS", "HTML", "CSS", "JavaScript", "Python", "MySQL", "Brevo"],
-      liveUrl: "https://popypos.vercel.app/",
-      isLive: true,
-      githubUrl: "https://github.com",
-      hasCode: false,
-      featured: true
-    },
-    {
-      title: "fleetup360",
-      description: "Developed a website for a vehicle rental company using Django, Tailwind CSS, HTML, CSS, JavaScript, Python, MySQL, and Brevo.",
-      image: fleetup360Img,
-      technologies: ["Django", "Tailwind CSS", "HTML", "CSS", "JavaScript", "Python", "MySQL", "Brevo"],
-      liveUrl: "https://www.ezrental.lk/",
-      isLive: true,
-      // githubUrl: "https://github.com",
-      hasCode: false,
-      featured: true
-    },
-    {
-      title: "Hyvv",
-      description: "Developed a user friendly interface for the Research Checker using React and Bootstrap, with a secure Django back end and OpenAI assistant integration.",
-      image: hyvvImg, // image pathales
-      technologies: ["React", "Bootstrap", "Django", "n8n", "RAG agents","OpenAI", "Brevo"],
-      liveUrl: "https://app.thehyvv.com/",
-      isLive: true, // true or false for live url
-      githubUrl: "https://github.com",
-      hasCode: false, // true or false for github url
-      featured: true // true or false for featured project
-    },
-    {
-      title: "Negombo Taxi",
-      description: "Developed a website for booking vehicles aimed at tourists. Built with Django backend and MySQL database for efficient data management.",
-      image: negomboTaxiImg, 
-      technologies: ["Vite", "Lovable", "Django", "WordPress REST API", "MySQL", "Brevo", "text.lk"],
-      liveUrl: "https://www.negombotaxi.com/",
-      isLive: true,
-      githubUrl: "https://github.com",
-      hasCode: false,
-      featured: true
-    },
-    {
-      title: "Dubsea.com",
-      description: "Rebuilt a web application using Next.js to optimize the frontend, integrated with Django backend and WordPress REST API for blogs.",
-      image: dubseaImg,
-      technologies: ["Next.js", "Django", "WordPress", "Brevo", "Tailwind CSS"],
-      liveUrl: "https://www.dubsea.com/",
-      isLive: true,
-      githubUrl: "https://github.com",
-      hasCode: false,
-      featured: true
-    },
-    {
-      title: "Personal Portfolio",
-      description: "Developed a personal portfolio website using Vite, React, Tailwind CSS, and TypeScript to showcase my skills and projects.",
-      image: personalPortfolioImg,
-      technologies: ["Vite", "React", "Tailwind CSS", "TypeScript", "HTML", "CSS"],
-      liveUrl: "https://www.surajfernando.com/",
-      isLive: true,
-      githubUrl: "https://github.com",
-      hasCode: false,
-      featured: true
-    },
+export const socialLinks = [
+  {
+    icon: <Github className="h-6 w-6" />,
+    label: "GitHub",
+    href: "https://github.com",
+    color: "hover:text-gray-400",
+  },
+  {
+    icon: <Linkedin className="h-6 w-6" />,
+    label: "LinkedIn", 
+    href: "https://linkedin.com",
+    color: "hover:text-blue-500",
+  },
+  {
+    icon: <Twitter className="h-6 w-6" />,
+    label: "Twitter",
+    href: "https://twitter.com", 
+    color: "hover:text-sky-400",
+  },
+];
 
-    {
-      title: "TinkerTale",
-      description: "Developed a wordpress website for a tinker tale company using wordpress and woocommerce. with a custom theme and plugins. product and category pages are built with woocommerce and custom post type. payment gateway is built with stripe, paypal, and bank transfer payhere.",
-      image: tinkertaleImg,
-      technologies: ["WordPress", "Woocommerce", "Stripe", "Paypal", "Bank Transfer", "Payhere", "Tailwind CSS", "HTML", "CSS"],
-      liveUrl: "https://tinkertale-staging.sprintcodelabs.com/",
-      isLive: true,
-      githubUrl: "https://github.com",
-      hasCode: true,
-      featured: true
-    },
-    {
-      title: "Tution Website",
-      description: "Developed a website for a tution center using Django and WordPress.",
-      image: tutionWebsiteImg,
-      technologies: ["Django", "WordPress", "Tailwind CSS","figma"],
-      liveUrl: "https://sachiradilanka.com/",
-      isLive: true,
-      githubUrl: "https://github.com",
-      hasCode: false,
-      featured: false
-    },
-    {
-      title: "Blubizlanka.com",
-      description: "Contributed to the development of a comprehensive web platform, focusing on creating reusable UI components and debugging to enhance user experience.",
-      image: blubizlankaImg,
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
-      liveUrl: "https://bluebizlanka.com/",
-      isLive: true,
-      githubUrl: "https://github.com",
-      hasCode: false,
-      featured: true
-    }
-  ];
+// ============================================================================
+// 5. PROJECTS DATA
+// ============================================================================
+export interface ProjectItem {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  liveUrl: string;
+  isLive: boolean;
+  githubUrl: string;
+  hasCode: boolean;
+  featured: boolean;
+}
+
+export const projects: ProjectItem[] = [
+  {
+    title: "OmniFlow - SaaS Analytics Platform",
+    description: "Engineered a real-time analytics dashboard with customizable metrics, multi-tenant workspace isolation, and automated reporting workflows.",
+    image: popyPosImg,
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL", "Recharts"],
+    liveUrl: "https://example.com",
+    isLive: true,
+    githubUrl: "https://github.com",
+    hasCode: true,
+    featured: true,
+  },
+  {
+    title: "ApexStore - E-Commerce Engine",
+    description: "Built a high-performance headless e-commerce store with real-time stock sync, Stripe integration, and optimized sub-second page loads.",
+    image: tinkertaleImg,
+    technologies: ["Next.js", "TypeScript", "Stripe API", "Tailwind CSS", "Redis"],
+    liveUrl: "https://example.com",
+    isLive: true,
+    githubUrl: "https://github.com",
+    hasCode: true,
+    featured: true,
+  },
+  {
+    title: "PulseAI - Workflow Automation",
+    description: "Created an AI-assisted workspace tool integrating LLM pipelines, prompt chaining, and asynchronous background worker processing.",
+    image: proImage,
+    technologies: ["React", "Python", "FastAPI", "OpenAI API", "Docker"],
+    liveUrl: "https://example.com",
+    isLive: true,
+    githubUrl: "https://github.com",
+    hasCode: true,
+    featured: true,
+  },
+  {
+    title: "FleetTrack 360",
+    description: "Developed an IoT fleet monitoring portal featuring live GPS telemetry mapping, maintenance alerts, and driver scheduling.",
+    image: popyPosImg,
+    technologies: ["React", "Node.js", "MongoDB", "WebSockets", "Mapbox"],
+    liveUrl: "https://example.com",
+    isLive: true,
+    githubUrl: "https://github.com",
+    hasCode: false,
+    featured: false,
+  },
+  {
+    title: "DocuVault - Knowledge Base",
+    description: "A fast, indexed technical documentation portal with instant fuzzy search, markdown rendering, and collaborative versioning.",
+    image: tinkertaleImg,
+    technologies: ["TypeScript", "Next.js", "Tailwind CSS", "Algolia"],
+    liveUrl: "https://example.com",
+    isLive: true,
+    githubUrl: "https://github.com",
+    hasCode: true,
+    featured: false,
+  },
+  {
+    title: "Minimalist Dev Portfolio",
+    description: "A sleek, responsive dark/light themed portfolio template built for developers and designers to showcase creative work.",
+    image: proImage,
+    technologies: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+    liveUrl: "https://example.com",
+    isLive: true,
+    githubUrl: "https://github.com",
+    hasCode: true,
+    featured: false,
+  },
+];

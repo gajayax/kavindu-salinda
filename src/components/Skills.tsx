@@ -1,64 +1,9 @@
 import { Card } from "./ui/card";
-import {
-  Code2,
-  Palette,
-  Database,
-  Smartphone,
-  Cloud,
-  GitBranch,
-  Zap,
-  Users
-} from "lucide-react";
+import { skillCategories, softSkills } from "@/content";
 import ScrollStage from "./effects/ScrollStage";
 import TiltCard from "./effects/TiltCard";
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Frontend Development",
-      icon: <Code2 className="h-8 w-8" />,
-      skills: ["React", "React Native", "JavaScript", "HTML", "CSS", "Bootstrap", "Tailwind CSS"],
-      color: "from-blue-500 to-purple-600"
-    },
-    {
-      title: "Backend Development",
-      icon: <Database className="h-8 w-8" />,
-      skills: ["Django", "Node.js", "Python", "MySQL", "MongoDB", "Firebase"],
-      color: "from-green-500 to-teal-600"
-    },
-    {
-      title: "Design & Tools",
-      icon: <Palette className="h-8 w-8" />,
-      skills: ["Figma", "Adobe Photoshop", "WordPress", "n8n"],
-      color: "from-pink-500 to-rose-600"
-    },
-    {
-      title: "Mobile Development",
-      icon: <Smartphone className="h-8 w-8" />,
-      skills: ["React Native", "Mobile UI/UX"],
-      color: "from-orange-500 to-yellow-600"
-    },
-    {
-      title: "Development Tools",
-      icon: <GitBranch className="h-8 w-8" />,
-      skills: ["Git", "GitHub", "Cursor", "ClickUp", "Jira", "Slack"],
-      color: "from-gray-500 to-slate-600"
-    },
-    {
-      title: "Other Technologies",
-      icon: <Cloud className="h-8 w-8" />,
-      skills: ["OpenAI APIs", "Brevo", "DigitalOcean", "Vercel", "Octave", "Arduino"],
-      color: "from-indigo-500 to-blue-600"
-    }
-  ];
-
-  const softSkills = [
-    { name: "Leadership", icon: <Users className="h-5 w-5" /> },
-    { name: "Problem Solving", icon: <Zap className="h-5 w-5" /> },
-    { name: "Communication", icon: <Users className="h-5 w-5" /> },
-    { name: "Adaptability", icon: <Zap className="h-5 w-5" /> }
-  ];
-
   return (
     <section id="skills" className="scene-3d relative scroll-mt-28 py-24 md:py-32">
       <div className="container mx-auto px-4">
